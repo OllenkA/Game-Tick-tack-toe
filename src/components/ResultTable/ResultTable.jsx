@@ -3,30 +3,30 @@ import styles from './ResultTable.module.css';
 
 function ResultTable(props) {
 
-    return <article>
+    return <div className={styles.container}>
         <section>
             <h2>Result table</h2>
         </section>
         {/*{props.isStartGame &&*/}
         <thead>
         <tr>
-            <th style={{border: '1px solid black'}} className={styles.table}>{props.gamer1}</th>
-            <th style={{border: '1px solid black'}} className={styles.table}>{props.gamer2}</th>
+            <th className={styles.table}>{props.gamer1}</th>
+            <th className={styles.table}>{props.gamer2}</th>
         </tr>
         <tr>
-            <td style={{border: '1px solid black'}}>0</td>
-            <td style={{border: '1px solid black'}}>0</td>
+            <td className={styles.table}>0</td>
+            <td className={styles.table}>0</td>
         </tr>
         <tr>
-            <td style={{border: '1px solid black'}}>0</td>
-            <td style={{border: '1px solid black'}}>0</td>
+            <td className={styles.table}>0</td>
+            <td className={styles.table}>0</td>
         </tr>
         <tr>
-            <td style={{border: '1px solid black'}}>0</td>
-            <td style={{border: '1px solid black'}}>0</td>
+            <td className={styles.table}>0</td>
+            <td className={styles.table}>0</td>
         </tr>
         </thead>
-    </article>
+    </div>
 }
 
 export default ResultTable;

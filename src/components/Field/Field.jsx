@@ -8,14 +8,17 @@ import Footer from "../Footer/Footer";
 const Field = (props) => {
     return <article className="field">
         <section>
-            {props.isPopUpActive ?
-                <PopUp getName1={props.getName1} getName2={props.getName2} closePopUp={props.closePopUp}/> : null}
+            <div className='fieldGame'>
+                {props.isPopUpActive ?
+                    <PopUp getName1={props.getName1} getName2={props.getName2} closePopUp={props.closePopUp}/> : null}
 
-            {props.isStartGame ? <div><h2>THE GAME {props.winner || (props.fullness === 0)  ? 'OVER' : 'STARTED'}</h2>
-                    <h3>{props.status}</h3></div>
-                : <button className='buttonStart' onClick={props.startGame}>START GAME</button>}
+                {props.isStartGame ?
+                    <div><h2>THE GAME {props.winner || (props.fullness === 0) ? 'OVER' : 'STARTED'}</h2>
+                        <h3>{props.status}</h3></div>
+                    : <button className='buttonStart' onClick={props.startGame}>START GAME</button>}
 
-            <aside className="cells">{props.cells}</aside>
+                <aside className="cells">{props.cells}</aside>
+            </div>
             <Footer fullness={props.fullness} winner={props.winner}
                     startGameAgain={props.startGameAgain} continueGame={props.continueGame}/>
         </section>
