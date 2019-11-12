@@ -11,18 +11,19 @@ const Field = (props) => {
                 getName1={props.getName1}
                 getName2={props.getName2}
                 closePopUp={props.closePopUp}/> : null}
-            {props.isStartGame ?
-                <div>
-                    <h2>THE GAME {props.winner ? 'OVER' : 'STARTED'}</h2>
+
+            {props.isStartGame ? <div>
+                    <h2>THE GAME {props.winner || (props.fullness === 0)  ? 'OVER' : 'STARTED'}</h2>
                     <h3>{props.status}</h3>
                 </div>
                 : <button className='buttonStart' onClick={props.startGame}>
                     START GAME
                 </button>}
+
             <aside className="cells">
                 {props.cells}
             </aside>
-            <footer>{props.winner ?
+            <footer>{props.winner || (props.fullness === 0)  ?
                 <div>
                     <button className='buttonStart' onClick={props.startGameAgain}>
                         NEW GAME

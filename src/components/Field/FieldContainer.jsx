@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import '../../App.css';
 import Cell from "../Cell/Cell";
-// import PopUp from "../PopUp/PopUp";
 import Field from "./Field";
+
 
 class FieldContainer extends Component {
     constructor(props) {
@@ -41,7 +41,6 @@ class FieldContainer extends Component {
         }
         return null;
     };
-
 
     onClickCell = (id) => {
         if (this.calculateWinner(this.state.squares) || this.state.squares[this.state.squares.id]) {
@@ -96,10 +95,15 @@ class FieldContainer extends Component {
 
     render() {
         const winner = this.calculateWinner(this.state.squares);
+        const fullness = this.state.squares.filter(sq => sq.value === null).length;
+        console.log(fullness);
         let status;
         if (winner) {
             status = 'Winner : ' + ((winner === 'X') ? this.state.gamer1 : this.state.gamer2);
-        } else {
+        } else if(!winner && fullness === 0){
+            status = '0 : 0 --- DRAW'
+        }
+        else {
             status = 'Next move : ' + (this.state.xIsNext ? this.state.gamer1
                 : this.state.gamer2);
         }
@@ -109,9 +113,9 @@ class FieldContainer extends Component {
                          xIsNext={this.state.xIsNext} onClickCell={this.onClickCell}/>
         });
 
-
-        return <Field {...this.state} cells={cells} status={status} winner={winner} closePopUp={this.closePopUp}
-                      getName1={this.getName1} getName2={this.getName2} continueGame={this.continueGame}
+        return <Field {...this.state} cells={cells} status={status} winner={winner}  fullness={fullness}
+                      closePopUp={this.closePopUp} continueGame={this.continueGame}
+                      getName1={this.getName1} getName2={this.getName2}
                       startGame={this.startGame} startGameAgain={this.startGameAgain}/>
     }
 }

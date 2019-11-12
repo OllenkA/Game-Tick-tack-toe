@@ -1,4 +1,6 @@
 .App {
+  background-image:
+          url("https://assets.awwwards.com/awards/images/2015/04/pattern.jpg");
   min-height: 100vh;
   text-align: center;
   display: flex;
